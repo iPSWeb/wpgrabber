@@ -2,10 +2,11 @@
 /**
 @package WPGrabber
 Plugin Name: WPGrabber
-Plugin URL: https://github.com/iPSWeb/wpgrabber
+Plugin URI: https://github.com/iPSWeb/wpgrabber
 Description: WordPess Grabber plugin для автонаполнения вашего сайта контентом
 Version: 1.0.0 (17.05.2018)
-Author: GrabTeam (close) - new WPGrabber_Biz
+Author: PSWeb - GrabTeam (close)
+Author URI: https://psweb.ru
 */
   if (defined('WPGRABBER_VERSION')) {
     die('На сайте активирован плагин WPGrabber версии '.WPGRABBER_VERSION.'. Пожалуйста, деактивируйте его перед активацией данного плагина.');
