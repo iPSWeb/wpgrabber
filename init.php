@@ -32,4 +32,3 @@ define('WPGRABBER_PLUGIN_TPL_DIR', WPGRABBER_PLUGIN_DIR.'tmpl'.DIRECTORY_SEPARAT
   require_once (WPGRABBER_PLUGIN_CORE_DIR.'TGrabberWordPress.php');
   require_once (WPGRABBER_PLUGIN_CORE_DIR.'TGrabberWPOptions.php');
   call_user_func(array(wpgPlugin(), 'load'));
-?>
