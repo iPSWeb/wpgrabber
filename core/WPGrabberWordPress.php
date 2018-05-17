@@ -1,13 +1,13 @@
 <?php
 /**
-* TGrabberWordPress
+* WPGrabberWordPress
 *
-* @version 1.1.6
+* @version 1.0.0
 * @author GrabTeam (closed)
 * @copyright 2009-2016 GrabTeam (closed)
 */
   
-class WPGrabberWordPress extends TGrabberCore
+class WPGrabberWordPress extends WPGrabberCore
 {
     var $attachImages = array();
     var $uploadMediaOn = true;
@@ -17,7 +17,7 @@ class WPGrabberWordPress extends TGrabberCore
     {
         global $wpdb;
         $this->db = $wpdb;
-        $this->config = new TGrabberWPOptions();
+        $this->config = new WPGrabberWPOptions();
         $this->rootPath = rtrim(ABSPATH, '/');
         $this->config->set('imgPath', $this->config->get('imgPath') ? $this->config->get('imgPath') : '/wp-content/uploads/');
         $this->onLog = true;

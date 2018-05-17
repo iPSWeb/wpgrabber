@@ -2,7 +2,7 @@
 /**
 * WPGrabberCore
 *
-* @version 1.1
+* @version 1.0.0
 * @author GrabTeam (closed)
 * @copyright 2009-2016 GrabTeam (closed)
 */

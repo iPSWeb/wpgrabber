@@ -158,7 +158,7 @@
       }
       if (count($feeds) > 0) {
         foreach ($feeds as $id) {
-          $grabber = self::_getTGrabber();
+          $grabber = self::_getWPGrabber();
           $grabber->autoUpdateMode = 1;
           $grabber->execute($id);
           /*if (wpgIsDebug()) {*/
@@ -591,7 +591,7 @@
 
       WPGErrorHandler::initPhpErrors();
 
-      $grabber = self::_getTGrabber();
+      $grabber = self::_getWPGrabber();
       if ($is_test) {
         $grabber->setTest();
       }
@@ -605,15 +605,15 @@
       self::exec($id, true);
     }
 
-    private static function _getTGrabber() {
+    private static function _getWPGrabber() {
       if (wpgIsPro()) {
-        $class = 'TGrabberWordPressPro';
+        $class = 'WPGrabberWordPressPro';
       } elseif (wpgIsStandard()) {
-        $class = 'TGrabberWordPressStandard';
+        $class = 'WPGrabberWordPressStandard';
       } elseif (wpgIsLite()) {
-        $class = 'TGrabberWordPressLite';
+        $class = 'WPGrabberWordPressLite';
       } else {
-        $class = 'TGrabberWordPress';
+        $class = 'WPGrabberWordPress';
       }
       $obj = new $class();
       return $obj;
@@ -951,7 +951,7 @@
             $pid = md5(microtime(true).rand(0,100));
           }
           $_SESSION[$pid]['date_add'] = time();
-          $grabber = self::_getTGrabber();
+          $grabber = self::_getWPGrabber();
           if ($test) {
             $grabber->setTest();
           }
@@ -981,7 +981,7 @@
           unset($_SESSION[$pid]);
         }
       } else {
-        $grabber = self::_getTGrabber();
+        $grabber = self::_getWPGrabber();
         if ($test) {
           $grabber->setTest();
         }
