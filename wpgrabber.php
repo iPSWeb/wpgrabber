@@ -16,4 +16,3 @@ Author URI: https://psweb.ru
   define('WPGRABBER_PLUGIN_URL', plugin_dir_url( __FILE__ ));
   define('WPGRABBER_PLUGIN_FILE', __FILE__);
   require WPGRABBER_PLUGIN_DIR.'init.php';
-?>
