@@ -7,7 +7,7 @@
 * @copyright 2009-2016 GrabTeam (closed)
 */
 
-class TGrabberCore
+class WPGrabberCore
 {
     var $config;
     var $feed;

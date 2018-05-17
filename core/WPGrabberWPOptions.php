@@ -1,5 +1,5 @@
 <?php
-class TGrabberWPOptions
+class WPGrabberWPOptions
 {
     var $options = array();
     function get($name)

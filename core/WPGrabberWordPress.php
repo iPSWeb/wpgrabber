@@ -7,7 +7,7 @@
 * @copyright 2009-2016 GrabTeam (closed)
 */
   
-class TGrabberWordPress extends TGrabberCore
+class WPGrabberWordPress extends TGrabberCore
 {
     var $attachImages = array();
     var $uploadMediaOn = true;
