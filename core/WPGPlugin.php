@@ -11,7 +11,8 @@
 
     public static function load() {
       register_activation_hook(WPGRABBER_PLUGIN_FILE, array(wpgPlugin(), 'install'));
-      register_deactivation_hook(WPGRABBER_PLUGIN_FILE, array(wpgPlugin(), 'uninstall'));
+      register_deactivation_hook(WPGRABBER_PLUGIN_FILE, array(wpgPlugin(), 'deactivate'));
+      register_uninstall_hook(WPGRABBER_PLUGIN_FILE, array(wpgPlugin(), 'uninstall'));
       add_action('wpgrabber_cron',  array(wpgPlugin(), 'wpCron'));
       add_filter('cron_schedules', array(wpgPlugin(), 'wpCronInterval'));
       add_filter( 'plugin_action_links', array(wpgPlugin(), 'addSettingsLink'), 10, 4 );
@@ -49,8 +50,17 @@
       self::_wpCronOn();
     }
 
-    public static function uninstall() {
+    public static function deactivate() {
       self::_wpCronOff();
+    }
+    
+    public static function uninstall() {
+        $sql = 'DROP TABLE `'.$wpdb->prefix.'wpgrabber`';
+        $wpdb->query($sql);
+        $sql = 'DROP TABLE `'.$wpdb->prefix.'wpgrabber_content`';
+        $wpdb->query($sql);
+        $sql = 'DROP TABLE `'.$wpdb->prefix.'wpgrabber_errors`';
+        $wpdb->query($sql);
     }
 
     protected static function _wpCronOn() {
