@@ -19,9 +19,6 @@
       add_action('admin_menu', array(wpgPlugin(), 'menu'));
       add_action('before_delete_post',  array(wpgPlugin(), 'deletePost'));
       add_filter('set-screen-option',  array(wpgPlugin(), 'setListOptions'), 10, 3);
-      if (wpgIsDemo()) {
-        add_filter('login_redirect', array(wpgPlugin(), 'adminDefaultPage'));
-      }
       add_action('wp_ajax_wpgrabberAjaxExec', array(wpgPlugin(), 'ajaxExec'));
       if (WPGTools::isSubmit('wpgrabberGetErrorLogFile')) {
         add_action('wp_loaded',  array(wpgPlugin(), 'getErrorLogFile'));
