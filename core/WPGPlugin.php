@@ -469,7 +469,7 @@
     }
 
     protected static function _getUserLevel() {
-      return wpgIsDemo() ? 0 : 'update_core';
+      return 'update_core';
     }
 
     protected static function _ifDemo($ids) {
