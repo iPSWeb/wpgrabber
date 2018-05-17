@@ -6,9 +6,9 @@
   $current_wpg_version = get_option('wpg_version');
   
   if (!$current_wpg_version) { // версия не определена, ставим 1.1.7
-      add_option('wpg_core_version', '1.1.7', 'no');
-      add_option('wpg_version', '1.1.7', 'no');
-      $current_wpg_version = '1.1.7';
+      add_option('wpg_core_version', '1.0.0', 'no');
+      add_option('wpg_version', '1.0.0', 'no');
+      $current_wpg_version = '1.0.0';
   } elseif ($current_wpg_core_version === false and $current_wpg_version !== false) {
     $current_wpg_core_version = $current_wpg_version;
     add_option('wpg_core_version', $current_wpg_core_version, 'no');
