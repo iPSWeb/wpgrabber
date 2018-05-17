@@ -28,8 +28,8 @@ define('WPGRABBER_PLUGIN_TPL_DIR', WPGRABBER_PLUGIN_DIR.'tmpl'.DIRECTORY_SEPARAT
   require_once (WPGRABBER_PLUGIN_CORE_DIR.'WPGTable.php');
   require_once (WPGRABBER_PLUGIN_CORE_DIR.'WPGTools.php');
   require_once (WPGRABBER_PLUGIN_CORE_DIR.'WPGWordPressDB.php');
-  require_once (WPGRABBER_PLUGIN_CORE_DIR.'TGrabberCore.php');
-  require_once (WPGRABBER_PLUGIN_CORE_DIR.'TGrabberWordPress.php');
-  require_once (WPGRABBER_PLUGIN_CORE_DIR.'TGrabberWPOptions.php');
+  require_once (WPGRABBER_PLUGIN_CORE_DIR.'WPGrabberCore.php');
+  require_once (WPGRABBER_PLUGIN_CORE_DIR.'WPGrabberWordPress.php');
+  require_once (WPGRABBER_PLUGIN_CORE_DIR.'WPGrabberWPOptions.php');
   call_user_func(array(wpgPlugin(), 'load'));
 ?>
