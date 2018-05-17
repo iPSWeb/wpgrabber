@@ -561,7 +561,6 @@ div.tab-content fieldset legend {
             </tr>
         </table>
     </fieldset>
-    <?php if(wpgIsStandard()): ?>
       <fieldset>
         <legend>Синонимизация через сервис Synonyma.ru</legend>
         <table class="tab-content-table">
@@ -571,7 +570,6 @@ div.tab-content fieldset legend {
           </tr>
         </table>
       </fieldset>
-    <?php endif; ?>
 </div>
 <input type="hidden" name="row[id]" value="<?php echo $row['id']; ?>">
 <div class="button-panel">
