@@ -53,15 +53,6 @@
     public static function deactivate() {
       self::_wpCronOff();
     }
-    
-    public static function uninstall() {
-        $sql = 'DROP TABLE `'.$wpdb->prefix.'wpgrabber`';
-        $wpdb->query($sql);
-        $sql = 'DROP TABLE `'.$wpdb->prefix.'wpgrabber_content`';
-        $wpdb->query($sql);
-        $sql = 'DROP TABLE `'.$wpdb->prefix.'wpgrabber_errors`';
-        $wpdb->query($sql);
-    }
 
     protected static function _wpCronOn() {
       if (!wp_next_scheduled('wpgrabber_cron')) {
@@ -1019,7 +1010,7 @@
       exit();
     }
 
-    public static function deactivateAndClear() {
+    public static function uninstall() {
       global $wpdb;
       deactivate_plugins(plugin_basename(WPGRABBER_PLUGIN_FILE));
       $sqls[] = 'DROP TABLE '.$wpdb->prefix.'wpgrabber';
@@ -1033,4 +1024,3 @@
     }
 
   }
-?>
