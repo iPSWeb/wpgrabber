@@ -604,15 +604,7 @@
     }
 
     private static function _getWPGrabber() {
-      if (wpgIsPro()) {
-        $class = 'WPGrabberWordPressPro';
-      } elseif (wpgIsStandard()) {
-        $class = 'WPGrabberWordPressStandard';
-      } elseif (wpgIsLite()) {
-        $class = 'WPGrabberWordPressLite';
-      } else {
         $class = 'WPGrabberWordPress';
-      }
       $obj = new $class();
       return $obj;
     }
