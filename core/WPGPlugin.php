@@ -38,7 +38,7 @@
     static function addSettingsLink( $links,  $plugin_file, $plugin_data, $context )
     {
         if (strpos($plugin_file, 'wpgrabber/')===false) return $links;
-        if (is_plugin_inactive( 'wpgrabber/wpgrabber-lite.php')) return $links;
+        if (is_plugin_inactive( 'wpgrabber/wpgrabber.php')) return $links;
         $mylinks = array(
             "<a title=\"Сбросить настройки плагина, удалить все ленты и таблицы плагина\" onclick=\"return confirm('Вы дейстительно хотите удалить все настроенные ленты, таблицы плагина, а также сбросить все параметры и деактировать плагин WPGrabber?');\" href=\"" . admin_url( '/admin.php?page=wpgrabber-settings&wpgrabberDeactivateAndClear' ) . '">Сбросить?</a>',
         );
@@ -1004,7 +1004,7 @@
 
     public static function uninstall() {
       global $wpdb;
-      deactivate_plugins(plugin_basename(WPGRABBER_PLUGIN_FILE));
+      register_deactivation_hook(plugin_basename(WPGRABBER_PLUGIN_FILE));
       $sqls[] = 'DROP TABLE '.$wpdb->prefix.'wpgrabber';
       $sqls[] = 'DROP TABLE '.$wpdb->prefix.'wpgrabber_content';
       $sqls[] = 'DROP TABLE '.$wpdb->prefix.'wpgrabber_errors';
