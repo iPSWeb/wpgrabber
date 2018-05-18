@@ -473,24 +473,6 @@
       return 'update_core';
     }
 
-    protected static function _ifDemo($ids) {
-      if ($user->roles[0]=='update_core') return false;
-      $demoIds = array('90', '91', '92', '93', '94');
-      if (!wpgIsDemo()) return false;
-      if (is_array($ids)) {
-        $search = array_intersect($ids, $demoIds);
-        if (!count($search)) {
-          return false;
-        }
-      } else {
-        if (!in_array($ids, array('90', '91', '92', '93', '94'))) {
-          return false;
-        }
-      }
-      self::_adminNotice('Тестовые ленты не возможно редактировать и удалять в demo-режиме! Если Вам нужно изменить ленту, скопируйте ее и меняейте настройки в копии ленты!');
-      return true;
-    }
-
     public static function setListOptions($status, $option, $value) {
       if ($option == 'wpgrabber_feeds_per_page') {
         $value = intval($value);
@@ -638,9 +620,6 @@
 
       $row['id'] = intval($row['id']);
       if ($row['id']) {
-        if (self::_ifDemo($row['id'])) {
-          return null;
-        }
         $result = $wpdb->update(
           $wpdb->prefix.'wpgrabber',
           array(
@@ -708,9 +687,6 @@
 
       if (empty($_POST['rows'])) {
         return false;
-      }
-      if (self::_ifDemo($_POST['rows'])) {
-        return null;
       }
       $rows = array_map('intval', $_POST['rows']);
       $sql = 'DELETE FROM `'.$wpdb->prefix.'wpgrabber`
